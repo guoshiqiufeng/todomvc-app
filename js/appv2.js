@@ -7,7 +7,7 @@
 			templateUrl: 'main_tmpl'
 		}).otherwise({redirectTo: '/'});
 	}]);
-	myApp.controller('MainController', ['$scope', '$location', '$routeParams','$route', function ($scope, $location, $routeParams,$route) {
+	myApp.controller('MainController', ['$scope', '$routeParams','$route', function ($scope, $routeParams,$route) {
 		function getId() {
 			var id = Math.random();
 			for (var i = 0; i < $scope.todos.length; i++) {
@@ -92,7 +92,7 @@
 		};
 
 		$scope.selector = {};
-		$scope.$location = $location;
+
 		var stauts = $routeParams.stauts;
 		switch (stauts) {
 			case 'active':
@@ -107,8 +107,8 @@
 		}
 
 		$scope.equalCompare = function (source, target) {
-			console.log(source);
-			console.log(target);
+			/*console.log(source);
+			console.log(target);*/
 			return source == target;
 		};
 	}]);
