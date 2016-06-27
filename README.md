@@ -6,7 +6,7 @@
 ##页面介绍
     -index.html使用普通实现方式实现
     -index2.html使用路由的方式实现
-    -indexV3.html使用模块分离+路由实现
+    -indexV3.html使用模块分离+路由实现+本地存储
 ##效果预览
 <img src="http://lovefoods.duapp.com/static/images/todomvc/001.png">
 <img src="http://lovefoods.duapp.com/static/images/todomvc/002.png">
