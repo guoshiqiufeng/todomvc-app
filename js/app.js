@@ -101,8 +101,8 @@
 			}
 		});
 		$scope.equalCompare = function (source, target) {
-			console.log(source);
-			console.log(target);
+			/*console.log(source);
+			console.log(target);*/
 			return source == target;
 		};
 	}]);

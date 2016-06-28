@@ -1,6 +1,7 @@
 # todomvc-app
 ##开始使用
-    -安装npm
+    -安装npm、git
+    -git clone https://github.com/guoshiqiufeng/todomvc-app.git
     -使用终端进入项目所在目录
     -npm install
 ##页面介绍

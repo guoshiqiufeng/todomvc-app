@@ -7,6 +7,23 @@
 			templateUrl: 'main_tmpl'
 		}).otherwise({redirectTo: '/'});
 	}]);
+	var todos=[
+        {
+            id: 1,
+            text: '学习',
+            completed: false
+        },
+        {
+            id: 2,
+            text: '睡觉',
+            completed: false
+        },
+        {
+            id: 3,
+            text: '敲代码',
+            completed: true
+        }
+    ];
 	myApp.controller('MainController', ['$scope', '$routeParams','$route', function ($scope, $routeParams,$route) {
 		function getId() {
 			var id = Math.random();
@@ -20,55 +37,41 @@
 		}
 
 		$scope.text = "";
-		$scope.todos = [
-			{
-				id: 1,
-				text: '学习',
-				completed: false
-			},
-			{
-				id: 2,
-				text: '睡觉',
-				completed: false
-			},
-			{
-				id: 3,
-				text: '敲代码',
-				completed: true
-			}
-		];
+		$scope.todos = todos;
 		$scope.add = function () {
 			if (!$scope.text) {
 				return;
 			}
-			$scope.todos.push({
+            todos.push({
 				id: getId(),
 				text: $scope.text,
 				completed: false
 			});
+            $scope.todos = todos;
 			$scope.text = "";
 		};
 		$scope.remove = function (id) {
-			for (var i = 0; i < $scope.todos.length; i++) {
-				if ($scope.todos[i].id === id) {
-					$scope.todos.splice(i, 1);
+			for (var i = 0; i < todos.length; i++) {
+				if (todos[i].id === id) {
+                    todos.splice(i, 1);
 					break;
 				}
 			}
+            $scope.todos = todos;
 		};
 		$scope.clear = function () {
 			var result = [];
-			for (var i = 0; i < $scope.todos.length; i++) {
-				if (!$scope.todos[i].completed) {
-					result.push($scope.todos[i]);
+			for (var i = 0; i < todos.length; i++) {
+				if (todos[i].completed) {
+					result.push(todos[i]);
 				}
 			}
 			$scope.todos = result;
 		};
 
 		$scope.existCompleted = function () {
-			for (var i = 0; i < $scope.todos.length; i++) {
-				if ($scope.todos[i].completed) {
+			for (var i = 0; i < todos.length; i++) {
+				if (todos[i].completed) {
 					return true;
 				}
 			}
@@ -85,10 +88,11 @@
 
 		var now = true;
 		$scope.toggleAll = function () {
-			for (var i = 0; i < $scope.todos.length; i++) {
-				$scope.todos[i].completed = now;
+			for (var i = 0; i < todos.length; i++) {
+				todos[i].completed = now;
 			}
 			now = !now;
+            $scope.todos = todos;
 		};
 
 		$scope.selector = {};
