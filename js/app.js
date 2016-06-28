@@ -1,6 +1,6 @@
 (function (angular) {
 	'use strict';
-	var myApp = angular.module('MyTodoMvc', ['ngRoute']);
+	var myApp = angular.module('MyTodoMvc', []);
 	myApp.controller('MainController', ['$scope', '$location', function ($scope, $location) {
 		function getId() {
 			var id = Math.random();
